@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const UpdateMovie = (props) => {
@@ -22,7 +23,7 @@ const UpdateMovie = (props) => {
          console.log(movie)
         Axios.put(`http://localhost:5000/api/movies/${movie.id}`, movie)
         .then(res => {
-            console.log(res)
+            props.history.push('/')
         }).catch(err => {
             console.log('update failed')
         })
